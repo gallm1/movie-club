@@ -1,0 +1,21 @@
+{
+  "name": "movie-club",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gallm1/movie-club.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gallm1/movie-club/issues"
+  },
+  "homepage": "https://github.com/gallm1/movie-club#readme"
+}

@@ -1,0 +1,17 @@
+user table
+id
+username/email
+password
+
+review/forum
+same forum id if selected for another movie week
+id
+user id foreign key referenced userid
+movie id (retrieved for movie api) referenced movie api
+comments
+number rating
+one to many
+
+user has many reviews
+reviews belong to user
+movie has many reviews

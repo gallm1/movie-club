@@ -17,13 +17,11 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
-
 router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
-
-})
+});
 
 
 // need to show only posters

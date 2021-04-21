@@ -1,0 +1,26 @@
+:root {
+    --primary: rgba(68, 88, 119, 1);
+    --secondary: rgba(146, 204, 206, 1);
+    --tertiary: rgba(49, 52, 61, 1);
+    --dark: rgba(28, 29, 33, 1);
+    --light: rgba(238, 238, 247, 1);
+}
+
+h1 {
+    margin: 0;
+    color: var(--tertiary);
+    background-color: var(--secondary);
+    padding: 5px 1% 5px 6%;
+    margin: 0;
+    font-size: 4vw;
+    line-height: 1;
+}
+
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+.no-button {
+    margin: 100px;
+}

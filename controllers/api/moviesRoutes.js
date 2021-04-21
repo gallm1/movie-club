@@ -43,6 +43,8 @@ async function getMoviesDetails() {
 //is there some way we can use append to response to make it easier?
     try {
         const movieDetails = await axios.get('https://api.themoviedb.org/3/movie/' + movieID + 'api_key=' + apiKey + '&language=en-US&')
+    } catch (err) {
+        console.error(err);
     }
 }
 
@@ -57,7 +59,6 @@ async function searchMovieQuery() {
         console.error(err);
     }
 }
-
 
 module.exports = router;
 

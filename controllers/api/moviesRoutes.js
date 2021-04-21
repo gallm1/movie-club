@@ -17,11 +17,20 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
+<<<<<<< HEAD
 router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
 });
+=======
+
+router.get('/', async(req, res) => {
+    const retrievedMovies = await getMoviesAll();
+    const retrievedPosters = await getMoviesPoster();
+    res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
+})
+>>>>>>> 7a078d26e3c32b8c6dfa0d8011fe25b4c8c0c1f6
 
 
 // need to show only posters
@@ -30,7 +39,7 @@ router.get('/', async (req, res) => {
 async function getMoviesPoster(posterURL) {
     try {
         const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
-        // console.log(moviePoster);
+            // console.log(moviePoster);
     } catch (err) {
         console.error(err);
     }
@@ -39,7 +48,7 @@ async function getMoviesPoster(posterURL) {
 //this gets movie details, by movieID
 //redirect user to movie website
 async function getMoviesDetails() {
-//is there some way we can use append to response to make it easier?
+    //is there some way we can use append to response to make it easier?
     try {
         const movieDetails = await axios.get('https://api.themoviedb.org/3/movie/' + movieID + 'api_key=' + apiKey + '&language=en-US&')
     } catch (err) {
@@ -60,4 +69,3 @@ async function searchMovieQuery() {
 }
 
 module.exports = router;
-

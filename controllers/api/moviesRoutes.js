@@ -10,7 +10,8 @@ async function getMoviesAll() {
     let moviesURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc'
     try {
         const moviesAll = await axios.get(moviesURL);
-        for (const { title, poster_path } of moviesAll.data.results) {
+        for (const { title, poster_path }
+            of moviesAll.data.results) {
             console.log(title, poster_path); //replace console.log with getMoviesPoster
         }
     } catch (err) {
@@ -31,3 +32,9 @@ async function getMoviesPoster(posterURL) {
 
 getMoviesAll();
 
+router.get('/', async(req, res) => {
+    const retrievedMovies = await getMoviesAll();
+    res.render('homepage', { movies: retrievedMovies })
+})
+
+module.exports = router;

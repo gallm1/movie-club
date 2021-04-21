@@ -20,3 +20,7 @@ h1 {
     float: left;
     margin-right: 25px;
 }
+
+.no-button {
+    margin: 100px;
+}

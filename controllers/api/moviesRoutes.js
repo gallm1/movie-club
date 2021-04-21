@@ -18,11 +18,10 @@ async function getMoviesAll() {
     }
 }
 
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
-
 })
 
 
@@ -32,7 +31,7 @@ router.get('/', async (req, res) => {
 async function getMoviesPoster(posterURL) {
     try {
         const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
-        // console.log(moviePoster);
+            // console.log(moviePoster);
     } catch (err) {
         console.error(err);
     }
@@ -40,7 +39,7 @@ async function getMoviesPoster(posterURL) {
 
 //this gets movie details, by movieID
 async function getMoviesDetails() {
-//is there some way we can use append to response to make it easier?
+    //is there some way we can use append to response to make it easier?
     try {
         const movieDetails = await axios.get('https://api.themoviedb.org/3/movie/' + movieID + 'api_key=' + apiKey + '&language=en-US&')
     } catch (err) {
@@ -61,4 +60,3 @@ async function searchMovieQuery() {
 }
 
 module.exports = router;
-

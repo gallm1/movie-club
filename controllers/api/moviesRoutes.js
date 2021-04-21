@@ -37,6 +37,7 @@ async function getMoviesPoster(posterURL) {
 }
 
 //this gets movie details, by movieID
+//redirect user to movie website
 async function getMoviesDetails() {
 //is there some way we can use append to response to make it easier?
     try {

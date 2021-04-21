@@ -22,7 +22,6 @@ router.get('/', async(req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
-
 })
 
 
@@ -59,12 +58,5 @@ async function searchMovieQuery() {
         console.error(err);
     }
 }
-
-module.exports = router;
-
-router.get('/', async(req, res) => {
-    const retrievedMovies = await getMoviesAll();
-    res.render('homepage', { movies: retrievedMovies })
-})
 
 module.exports = router;

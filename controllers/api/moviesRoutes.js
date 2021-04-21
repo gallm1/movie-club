@@ -17,20 +17,11 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
-<<<<<<< HEAD
 router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
 });
-=======
-
-router.get('/', async(req, res) => {
-    const retrievedMovies = await getMoviesAll();
-    const retrievedPosters = await getMoviesPoster();
-    res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
-})
->>>>>>> 7a078d26e3c32b8c6dfa0d8011fe25b4c8c0c1f6
 
 
 // need to show only posters

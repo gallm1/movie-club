@@ -14,6 +14,7 @@ h1 {
     margin: 0;
     font-size: 4vw;
     line-height: 1;
+    /*background-image: "./images/Movie-Night.jpg";*/
 }
 
 .float-left {
@@ -31,11 +32,6 @@ h1 {
     font-size: 100%;
 }
 
-.h1name {
-    background-color: #1b89bc;
-}
-
-.moviecontainer {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    background-color: rgb(86, 123, 202);
+.icenter {
+    display: block;
 }

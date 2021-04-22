@@ -17,9 +17,9 @@ async function getMoviesPoster(posterURL) {
     }
 }
 
-// //gets all movies
-// //ICEBOX: be able to sort movies
-// //this is grabs the data and posters of movies
+//gets all movies
+//ICEBOX: be able to sort movies
+//this is grabs the data and posters of movies
 async function getMoviesAll() {
     let moviesURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=1'
     try {
@@ -33,7 +33,8 @@ async function getMoviesAll() {
 router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
-    res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
+    const MovieOfTheWeek = await weeklyMovie();
+    res.render('homepage', { movies: retrievedMovies, images: retrievedPosters, weekly: MovieOfTheWeek });
 });
 
 //create another get for an individual movie, or selected movie 
@@ -44,14 +45,6 @@ async function oneMovie(MovieID) {
         // console.log{ id, title, overview, poster_path, release_date, tagline, vote_average };
         const { id, title, overview, poster_path, release_date, tagline, vote_average } = moviesData.data;
         return { id, title, overview, poster_path, release_date, tagline, vote_average }
-        // console.log(`
-        //     id: ${id} 
-        //     title: ${title} 
-        //     overview: ${overview}
-        //     poster_path: ${poster_path} 
-        //     release_date: ${release_date}
-        //     tagline: ${tagline} 
-        //     vote_average: ${vote_average}`);
     } catch (err) {
         console.error(err);
     }
@@ -74,5 +67,34 @@ async function searchMovieQuery() {
     }
 }
 
+async function weeklyMovie() {
+    let randomMovie = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=' + randomPageNumber(500);
+    try {
+        const pageObj = await axios.get(randomMovie);
+        console.log();
+        res.render('reviews', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+function randomPageNumber(max) {
+    let randomPageInt = Math.floor(Math.random() * max) + 1;
+    // console.log(randomPageInt);
+    return randomPageInt
+}
+
+async function getMoviesAll() {
+    let moviesURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=1'
+    try {
+        const moviesAll = await axios.get(moviesURL);
+        // getMoviesDetails(moviesAll.data.results);
+        console.log(moviesAll.data.total_pages);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+
 module.exports = router;
-// movieWeek();
+

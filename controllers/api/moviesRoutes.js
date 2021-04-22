@@ -4,9 +4,22 @@ const axios = require('axios');
 //replace with dot.env notation later
 const apiKey = 'dedaf40fb1cc1067cd388db10b3075ee'
 
-//gets all movies
-//ICEBOX: be able to sort movies
-//this is grabs the data of movies
+// need to show only posters
+//being called in getMoviesAll to create complete movie poster
+//this creates a full url for posterURL that we can append to HTML
+// called in getMoviesAll()
+async function getMoviesPoster(posterURL) {
+    try {
+        const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
+            // console.log(moviePoster);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+// //gets all movies
+// //ICEBOX: be able to sort movies
+// //this is grabs the data and posters of movies
 async function getMoviesAll() {
     let moviesURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=1'
     try {
@@ -17,27 +30,35 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
-
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters });
-})
+});
 
-
-// need to show only posters
-//being called in getMoviesAll to create complete movie poster
-//this creates a full url for posterURL that we can append to HTML
-async function getMoviesPoster(posterURL) {
+//create another get for an individual movie, or selected movie 
+async function movieWeek() {
+    let selectedMovie = 'https://api.themoviedb.org/3/movie/' + '550' + '?api_key=' + apiKey + '&language=en-US&'
     try {
-        const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
-            // console.log(moviePoster);
+        const moviesData = await axios.get(selectedMovie);
+            // console.log{ id, title, overview, poster_path, release_date, tagline, vote_average };
+            const { id, title, overview, poster_path, release_date, tagline, vote_average } = moviesData.data;
+            console.log(`
+            id: ${id} 
+            title: ${title} 
+            overview: ${overview}
+            poster_path: ${poster_path} 
+            release_date: ${release_date}
+            tagline: ${tagline} 
+            vote_average: ${vote_average}`);
+        
     } catch (err) {
         console.error(err);
     }
-}
+} 
 
-//this gets movie details, by movieID
+//this gets movie details, by movieID so a more specific get movie details
+//redirect user to movie website
 async function getMoviesDetails() {
     //is there some way we can use append to response to make it easier?
     try {
@@ -60,3 +81,4 @@ async function searchMovieQuery() {
 }
 
 module.exports = router;
+// movieWeek();

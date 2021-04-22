@@ -1,5 +1,5 @@
 const router = require('express').Router();
-//const { movies, User } = require('../models');
+const { Review, User } = require('../models');
 //const withAuth = require('../utils/auth');
 
 // require models

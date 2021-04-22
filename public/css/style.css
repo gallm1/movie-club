@@ -22,5 +22,11 @@ h1 {
 }
 
 .no-button {
-    margin: 100px;
+    background: none;
+    border: none;
+    padding: 5;
+    cursor: pointer;
+    color: #1b89bc;
+    text-decoration: none;
+    font-size: 100%;
 }

@@ -20,7 +20,7 @@
     
     body {
         margin: 0;
-        color: #314042;
+        background-color: #484848
     }
     /**
  * Render the `main` element consistently in IE.
@@ -28,6 +28,7 @@
     
     main {
         display: block;
+        background-color: rgb(185, 141, 182);
     }
     /**
  * Correct the font size and margin on `h1` elements within `section` and
@@ -37,6 +38,7 @@
     h1 {
         font-size: 2em;
         margin: 0.67em 0;
+        background-color: teal;
     }
     /* Grouping content
    ========================================================================== */

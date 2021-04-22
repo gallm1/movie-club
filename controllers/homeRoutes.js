@@ -95,6 +95,4 @@ async function getMoviesAll() {
     }
 }
 
-
 module.exports = router;
-

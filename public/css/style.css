@@ -30,3 +30,12 @@ h1 {
     text-decoration: none;
     font-size: 100%;
 }
+
+.h1name {
+    background-color: #1b89bc;
+}
+
+.moviecontainer {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgb(86, 123, 202);
+}

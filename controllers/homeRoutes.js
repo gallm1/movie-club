@@ -84,15 +84,4 @@ function randomPageNumber(max) {
     return randomPageInt
 }
 
-async function getMoviesAll() {
-    let moviesURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=1'
-    try {
-        const moviesAll = await axios.get(moviesURL);
-        // getMoviesDetails(moviesAll.data.results);
-        console.log(moviesAll.data.total_pages);
-    } catch (err) {
-        console.error(err);
-    }
-}
-
 module.exports = router;

@@ -35,3 +35,12 @@ h1 {
 .icenter {
     display: block;
 }
+
+.overview,
+.title,
+.vote,
+.idm {
+    font-size: 16px;
+    font-weight: bolder;
+    color: rgb(180, 32, 32);
+}

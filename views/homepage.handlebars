@@ -1,8 +1,8 @@
 {{#each movies as |movie|}}
-<p>{{getMoviesAll.id}}</p>
-<p>{{movie.title}}</p>
-<p>{{movie.vote_average}}</p>
-<p>{{movie.overview}}</p>
+<!--<p class="idm">ID: {{movie.id}}</p>-->
+<p class="title"> Title: {{movie.title}}</p>
+<p class="vote"> Avg Vote: {{movie.vote_average}}</p>
+<p class="overview"> Overview: {{movie.overview}}</p>
 
 <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="moviePoster">
 {{/each}}

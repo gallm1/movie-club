@@ -11,7 +11,7 @@ const apiKey = 'dedaf40fb1cc1067cd388db10b3075ee'
 async function getMoviesPoster(posterURL) {
     try {
         const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
-        // console.log(moviePoster);
+            // console.log(moviePoster);
     } catch (err) {
         console.error(err);
     }
@@ -30,7 +30,7 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     const MovieOfTheWeek = await weeklyMovie();
@@ -49,7 +49,7 @@ async function oneMovie(MovieID) {
         console.error(err);
     }
 }
-router.get('/movie/:id', async (req, res) => {
+router.get('/movie/:id', async(req, res) => {
     const retrievedMovieDetails = await oneMovie(req.params.id);
     console.log(retrievedMovieDetails)
     res.render('reviews', retrievedMovieDetails);

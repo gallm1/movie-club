@@ -1,46 +1,53 @@
-<div class="posts">
-    <div class="row justify-content-center">
-        <div class="col-lg-7" style="margin-top: 50px;">
-            <div class="card">
-                <img src="https://picsum.photos/500/500" class="card-img-top" alt="movieposter" width="500" height="500">
-                <div class="card-body">
-                    <div class="container container-fluid mt-5">
-                        <div class="row mt-4">
-                            <div class="col-md-6">
-                                <h3>Create a new review:</h3>
-                                <form class="form new-blogpost-form">
-                                    <div class="form-group">
-                                        <label for="blogpost-title">Title:</label>
-                                        <input class="form-input" type="text" id="blogpost-title" name="blogpost-title" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="blogpost-content">Content:</label>
-                                        <textarea class="form-input" id="blogpost-content" name="blogpost-content"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">Review</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <h5 class="card-title">Posted by {{user.name}}</h5>
-                    <ul class="list-group">
-                        <li class="list-group-item">This is supposed to be a review.</li>
-                        <li class="list-group-item">This is supposed to be a review.</li>
-                    </ul>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../public/fontawesome/css/all.css" />
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-default">
+            <div class="continer-fluid"></div>
+        </nav>
+        <div class="col-md-3"></div>
+        <div class="col-md-6 well">
+            <h3 class="text-primary">Rate your movie!</h3>
+            <hr style="border-top:1px dotted #ccc;" />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>User:</label>
+                    <input type="text" id="user" class="form-control" />
                 </div>
+                
+                <div>
+                    <h3>Rating:</h3>
+                    <span id="1" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
+                        startRating="starmark(this)"></span>
+                    <span id="2" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
+                        startRating="starmark(this)"></span>
+                    <span id="3" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
+                        startRating="starmark(this)"></span>
+                    <span id="4" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
+                        startRating="starmark(this)"></span>
+                    <span id="5" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
+                        startRating="starmark(this)"></span>
+                </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <h3>Review:</h3>
+                    <textarea id="review" class="form-control" style="resize:none; height:100px;"></textarea>
+                </div>
+                <center><button class="btn btn-success" onclick="submitRate()">Submit</button></center>
+            </div>
+            <div class="col-md-6">
+                <div id="result"></div>
             </div>
         </div>
-    </div>
-</div>
-<script src="../public/js/createReview.js"></script>
+        <script src="../public/js/script.js"></script>
+    </body>
+</html>
 
-{{#each movies as |movie|}}
-<!--<p class="idm">ID: {{movie.id}}</p>-->
-<p class="title"> Title: {{weeklymovie.title}}</p>
-<p class="vote"> Avg Vote: {{movie.vote_average}}</p>
-<p class="overview"> Overview: {weekly{movie.overview}}</p>
 
-<img src="https://image.tmdb.org/t/p/w185/{{weeklymovie.poster_path}}" alt="moviePoster">
-{{/each}}

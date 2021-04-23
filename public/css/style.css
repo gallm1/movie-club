@@ -57,3 +57,7 @@ h1 {
 .block-1 {
     background-color: grey;
 }
+
+.half-width {
+    width: 50%;
+}

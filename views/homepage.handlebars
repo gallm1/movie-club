@@ -1,8 +1,30 @@
-{{#each movies as |movie|}}
-<!--<p class="idm">ID: {{movie.id}}</p>-->
-<p class="title"> Title: {{movie.title}}</p>
-<p class="vote"> Avg Vote: {{movie.vote_average}}</p>
-<p class="overview"> Overview: {{movie.overview}}</p>
+{{!-- <main class="container-fluid py-5 block block-1"> --}}
+    <div class="row" id="moviePoster">
+        <div class="col-2 justify-content-center">
+            <img src="https://image.tmdb.org/t/p/w342/{{weekly.poster_path}}" alt="{{weekly.title}}">
+        </div>
+    </div>
 
-<img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="moviePoster">
-{{/each}}
+    <div class="row justify-content-start" id="movieDetails">
+        <div class="col-10 mx-auto text-center d-flex flex-row-reverse">
+            <div class="col"><h3>TITLE</h3></div>
+            <div class="col"><h3>DESCRIPTION</h3></div>
+            <div class="col"><h3>ANOTHER THING</h3></div>
+            <div class="col"><h3>MORE THING</h3></div>
+            <div class="col"><h3>THING</h3></div>
+        </div>
+    </div>
+
+
+
+
+
+    {{!-- </body> --}}
+    {{!-- {{#each movies as |movie|}}
+    <p>{{movie.id}}</p>
+    <p>{{movie.title}}</p>
+    <p>{{movie.vote_average}}</p>
+    <p>{{movie.overview}}</p>
+
+    <img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="moviePoster">
+    {{/each}} --}}

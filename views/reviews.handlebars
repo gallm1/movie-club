@@ -1,50 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="../public/fontawesome/css/all.css" />
-    </head>
-    <body>
-        
-        <nav class="navbar navbar-default">
-            <div class="continer-fluid"></div>
-        </nav>
-        <div class="col-md-3"></div>
-        <div class="col-md-6 well">
-            <h3 class="text-primary">Rate your movie!</h3>
-            <hr style="border-top:1px dotted #ccc;" />
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>User:</label>
-                    <input type="text" id="user" class="form-control" />
-                </div>
-                
-                <div>
-                    <h3>Rating:</h3>
-                    <span id="1" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
-                        startRating="starmark(this)"></span>
-                    <span id="2" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
-                        startRating="starmark(this)"></span>
-                    <span id="3" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
-                        startRating="starmark(this)"></span>
-                    <span id="4" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
-                        startRating="starmark(this)"></span>
-                    <span id="5" style="font-size:30px; cursor:pointer;" class="fa fa-star" onmouseover="startRating(this)"
-                        startRating="starmark(this)"></span>
-                </div>
-                </div>
-                <br />
-                <div class="form-group">
-                    <h3>Review:</h3>
-                    <textarea id="review" class="form-control" style="resize:none; height:100px;"></textarea>
-                </div>
-                <center><button class="btn btn-success" onclick="submitRate()">Submit</button></center>
+<div class="container-fluid block block-1">
+    <div class="container block block-1">
+        <div class="row full-width">
+            <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
+                <img src="https://image.tmdb.org/t/p/w342/{{selectedMovie.poster_path}}" alt="{{selectedMovie.title}}">
             </div>
-            <div class="col-md-6">
-                <div id="result"></div>
+            <div class="col-md-6 col-sm-6 col-6 py-5">
+                <h2 class="text-center">{{selectedMovie.title}}</h2>
+                <p class="text-center">{{selectedMovie.release_date}}</p>
+                <p class="text-center"><strong>{{selectedMovie.vote_average}}</strong></p>
+                <h5 class="text-center">{{selectedMovie.overview}}</h5>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid block block-2">
+    <div class="container-fluid block block-2">
+        <h2 class="text-center pt-5">Let's talk about it!</h2>
+        <div class="row full-width">
+            {{#each movies as |movie|}}
+            <div class="col-md-3 col-sm-3 col-3 text-center py-5 hoverContainer">
+                <form action="/reviews/{{movie.id}}" id="redirectTo">
+                    <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
+                        alt="{{movie.title}}" class="posterBtn image"></input>
+                </form>
+            </div>
+            {{/each}}
         </div>
         <script src="../public/js/script.js"></script>
     </body>

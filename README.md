@@ -17,7 +17,8 @@ Find the movie you want to view on the homepage.
 ![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-MC-Home.png)
 
 Leave your review/feedback
-![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-MC-Reviews.png)
+
+![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-Review-Form.png)
 
 ## Credits
 

@@ -1,16 +1,32 @@
-    <div class="container-fluid block block-1">
-        <div class="container block block-1">
-            <div class="row full-width">
-                <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
-                    <img src="https://image.tmdb.org/t/p/w342/{{selectedMovie.poster_path}}" alt="{{selectedMovie.title}}">
-                </div>
-                <div class="col-md-6 col-sm-6 col-6 py-5">
-                    <h2 class="text-center">{{selectedMovie.title}}</h2>
-                    <p class="text-center">{{selectedMovie.release_date}}</p>
-                    <p class="text-center"><strong>{{selectedMovie.vote_average}}</strong></p>
-                    <h5 class="text-center">{{selectedMovie.overview}}</h5>
-                </div>
+<div class="container-fluid block block-1">
+    <div class="container block block-1">
+        <div class="row full-width">
+            <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
+                <img src="https://image.tmdb.org/t/p/w342/{{selectedMovie.poster_path}}" alt="{{selectedMovie.title}}">
+            </div>
+            <div class="col-md-6 col-sm-6 col-6 py-5">
+                <h2 class="text-center">{{selectedMovie.title}}</h2>
+                <p class="text-center">{{selectedMovie.release_date}}</p>
+                <p class="text-center"><strong>{{selectedMovie.vote_average}}</strong></p>
+                <h5 class="text-center">{{selectedMovie.overview}}</h5>
             </div>
         </div>
     </div>
+</div>
+
+<div class="container-fluid block block-2">
+    <div class="container-fluid block block-2">
+        <h2 class="text-center pt-5">Let's talk about it!</h2>
+        <div class="row full-width">
+            {{#each movies as |movie|}}
+            <div class="col-md-3 col-sm-3 col-3 text-center py-5 hoverContainer">
+                <form action="/reviews/{{movie.id}}" id="redirectTo">
+                    <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
+                        alt="{{movie.title}}" class="posterBtn image"></input>
+                </form>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
 <script src="../public/js/createReview.js"></script>

@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     const MovieOfTheWeek = await weeklyMovie();
+    const searchMovie = await searchMovieQuery();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters, weekly: MovieOfTheWeek });
 });
 
@@ -74,18 +75,19 @@ function randomPageNumber(max) {
 async function searchMovieQuery(userSearch) {
     // let userSearch = process.argv[2];
     try {
-        let moviesSearchURL = await axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + process.env.API_KEY + '&language=en-US&query=' + userSearch + '&page=1&include_adult=false')
+        const moviesSearchURL = await axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + process.env.API_KEY + '&language=en-US&query=' + userSearch + '&page=1&include_adult=false')
         // console.log(moviesSearchURL.data.results);
         // console.log(userSearch);
-        return moviesSearchURL.data.results
+        const { id, title, overview, poster_path, release_date, vote_average } = moviesSearchURL.data;
+        return { id, title, overview, poster_path, release_date, vote_average }
     } catch (err) {
         console.error(err);
     }
 }
 
-router.get('/search:query', async (req, res) => {
-    const retrievedMoviesFromSearch = await searchMovieQuery(req.query.query);
-    res.render('search', { searchedMovies: retrievedMoviesFromSearch });
+router.get('/search/:title', async (req, res) => {
+    const retrievedMoviesFromSearch = await searchMovieQuery(req.params.title);
+    res.render('homepage', { searchedMovies: retrievedMoviesFromSearch });
 });
 
 

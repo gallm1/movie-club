@@ -2,13 +2,13 @@
         <div class="container block block-1">
             <div class="row full-width">
                 <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
-                    <img src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}" alt="{{movie.title}}">
+                    <img src="https://image.tmdb.org/t/p/w342/{{selectedMovie.poster_path}}" alt="{{selectedMovie.title}}">
                 </div>
                 <div class="col-md-6 col-sm-6 col-6 py-5">
-                    <h2 class="text-center">{{movie.title}}</h2>
-                    <p class="text-center">{{movie.release_date}}</p>
-                    <p class="text-center"><strong>{{movie.vote_average}}</strong></p>
-                    <h5 class="text-center">{{movie.overview}}</h5>
+                    <h2 class="text-center">{{selectedMovie.title}}</h2>
+                    <p class="text-center">{{selectedMovie.release_date}}</p>
+                    <p class="text-center"><strong>{{selectedMovie.vote_average}}</strong></p>
+                    <h5 class="text-center">{{selectedMovie.overview}}</h5>
                 </div>
             </div>
         </div>

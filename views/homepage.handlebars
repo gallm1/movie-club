@@ -2,8 +2,11 @@
     <div class="container-fluid block block-1">
         <div class="container block block-1">
             <div class="row full-width">
-                <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
-                    <img src="https://image.tmdb.org/t/p/w342/{{weekly.poster_path}}" alt="{{weekly.title}}">
+                <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3 hoverContainer">
+                    <form action="/reviews/{{weekly.id}}">
+                        <input type="image" class="image" src="https://image.tmdb.org/t/p/w342/{{weekly.poster_path}}"
+                            alt="{{weekly.title}}"></input>
+                    </form>
                 </div>
                 <div class="col-md-6 col-sm-6 col-6 py-5">
                     <h2 class="text-center">{{weekly.title}}</h2>
@@ -20,7 +23,7 @@
             <h2 class="text-center pt-5">Popular Movies</h2>
             <div class="row full-width">
                 {{#each movies as |movie|}}
-                <div class="col-md-3 col-sm-1 col-1 text-center py-5 hoverContainer d-flex flex-wrap">
+                <div class="col-md-3 col-sm-1 col-1 text-center py-5 hoverContainer">
                     <form action="/reviews/{{movie.id}}" id="redirectTo">
                         <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
                             alt="{{movie.title}}" class="posterBtn image"></input>

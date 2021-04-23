@@ -31,7 +31,6 @@ router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     const MovieOfTheWeek = await weeklyMovie();
-    const searchMovie = await searchMovieQuery();
     res.render('homepage', { movies: retrievedMovies, images: retrievedPosters, weekly: MovieOfTheWeek });
 });
 
@@ -87,7 +86,7 @@ async function searchMovieQuery(userSearch) {
 
 router.get('/search/:title', async (req, res) => {
     const retrievedMoviesFromSearch = await searchMovieQuery(req.params.title);
-    res.render('homepage', { searchedMovies: retrievedMoviesFromSearch });
+    res.render('homepage', { searched: retrievedMoviesFromSearch });
 });
 
 

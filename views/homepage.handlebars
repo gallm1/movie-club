@@ -5,7 +5,6 @@
                 <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
                     <img src="https://image.tmdb.org/t/p/w342/{{weekly.poster_path}}" alt="{{weekly.title}}">
                 </div>
-
                 <div class="col-md-6 col-sm-6 col-6 py-5">
                     <h2 class="text-center">{{weekly.title}}</h2>
                     <p class="text-center">{{weekly.release_date}}</p>
@@ -17,10 +16,15 @@
     </div>
 
     <div class="container-fluid block block-2">
-        <div class="row full-width">
-            {{#each movies as |movie|}}
-            <div class="col-md-1 col-sm-1 col-1 text-center py-5">
-                <img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}" alt="{{movie.title}}">
+        <div class="container-fluid block block-2">
+            <h2 class="text-center pt-5">Popular Movies</h2>
+            <div class="row full-width">
+                {{#each movies as |movie|}}
+                <div class="col-md-3 col-sm-3 col-3 text-center py-5 hoverContainer">
+                    <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
+                        alt="{{movie.title}}" class="posterBtn image"></input>
+                </div>
+                {{/each}}
             </div>
-            {{/each}}
         </div>
+    </div>

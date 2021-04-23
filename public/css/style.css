@@ -68,3 +68,22 @@ h1 {
 .full-width {
     width: 100%;
 }
+
+.hoverContainer {
+    position: relative;
+    width: 50%;
+}
+
+.image {
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.hoverContainer:hover .image {
+    opacity: 0.3;
+}
+
+.hoverContainer:hover .middle {
+    opacity: 1;
+} 

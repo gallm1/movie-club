@@ -58,7 +58,7 @@ async function weeklyMovie() {
     try {
         const pageObj = await axios.get(randomMovie);
         // console.log(pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
-        return 'reviews', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]
+        return 'homepage', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]
     } catch (err) {
         console.error(err);
     }

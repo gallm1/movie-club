@@ -8,10 +8,15 @@ const apiKey = 'dedaf40fb1cc1067cd388db10b3075ee'
 //being called in getMoviesAll to create complete movie poster
 //this creates a full url for posterURL that we can append to HTML
 // called in getMoviesAll()
+//do i need to call this anywhere else? can i just set this as a global variable to get rid of a poster? will that even WORK?
+//CAN I JUST TAKE THE LINK AND PUT IT IN HANDLEBARS? AAAA
+//I THINK THIS FUNCTION IS USELESS
+//NO ITS NOT ITS BEING CALLED IN ROUTER.GET
+//BUT IS IT REALLY
 async function getMoviesPoster(posterURL) {
     try {
         const moviePoster = await axios.get('https://image.tmdb.org/t/p/w185/' + posterURL)
-            // console.log(moviePoster);
+        // console.log(moviePoster);
     } catch (err) {
         console.error(err);
     }
@@ -30,7 +35,7 @@ async function getMoviesAll() {
         console.error(err);
     }
 }
-router.get('/', async(req, res) => {
+router.get('/', async (req, res) => {
     const retrievedMovies = await getMoviesAll();
     const retrievedPosters = await getMoviesPoster();
     const MovieOfTheWeek = await weeklyMovie();
@@ -49,17 +54,18 @@ async function oneMovie(MovieID) {
         console.error(err);
     }
 }
-router.get('/movie/:id', async(req, res) => {
+router.get('/movie/:id', async (req, res) => {
     const retrievedMovieDetails = await oneMovie(req.params.id);
-    console.log(retrievedMovieDetails)
+    // console.log(retrievedMovieDetails)
     res.render('reviews', retrievedMovieDetails);
 });
 
+//iterates through 500 pages to select a random movie
 async function weeklyMovie() {
     let randomMovie = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=' + randomPageNumber(500);
     try {
         const pageObj = await axios.get(randomMovie);
-        // console.log(pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
+        console.log(pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
         return 'reviews', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]
     } catch (err) {
         console.error(err);
@@ -73,16 +79,21 @@ function randomPageNumber(max) {
 }
 //queries user search to search for movie 
 //replace function params with user input later
-async function searchMovieQuery() {
-    let userSearch = process.argv[2];
+async function searchMovieQuery(userSearch) {
+    // let userSearch = process.argv[2];
     try {
         let moviesSearchURL = await axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&language=en-US&query=' + userSearch + '&page=1&include_adult=false')
         console.log(moviesSearchURL.data.results);
+        return moviesSearchURL.data.results
     } catch (err) {
         console.error(err);
     }
 }
 
+router.get('/search:id', async (req, res) => {
+    const retrievedMoviesFromSearch = await searchMovieQuery(req.params.id);
+    res.render('search', retrievedMoviesFromSearch);
+});
 
 
 

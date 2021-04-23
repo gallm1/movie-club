@@ -14,10 +14,10 @@ No installation required.  Application deployed via heroku.
 
 Find the movie you want to view on the homepage.
 
-![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-Home-Page.png)
+![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-MC-Home.png)
 
 Leave your review/feedback
-![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-Review-Page.png)
+![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-MC-Reviews.png)
 
 ## Credits
 

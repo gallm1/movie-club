@@ -23,6 +23,7 @@
 
 // document.querySelector(".new-comment-form").addEventListener("submit", newCommentHandler);var rate = 0;
 
+
 function submitRate() {
     var user = document.getElementById('user').value;
     var review = document.getElementById('review').value;
@@ -50,3 +51,5 @@ function startRating(item) {
         }
     }
 }
+
+localStorage.setItem(result);

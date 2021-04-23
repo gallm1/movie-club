@@ -1,8 +1,32 @@
-{{#each movies as |movie|}}
-<p>{{movie.id}}</p>
-<p>{{movie.title}}</p>
-<p>{{movie.vote_average}}</p>
-<p>{{movie.overview}}</p>
+{{!-- <main class="container-fluid py-5 block block-1"> --}}
+    <div class="container-fluid block block-1">
+        <div class="container block block-1">
+            <div class="row full-width">
+                <div class="col-md-6 col-sm-6 col-6 text-center py-5 me-3">
+                    <img src="https://image.tmdb.org/t/p/w342/{{weekly.poster_path}}" alt="{{weekly.title}}">
+                </div>
+                <div class="col-md-6 col-sm-6 col-6 py-5">
+                    <h2 class="text-center">{{weekly.title}}</h2>
+                    <p class="text-center">{{weekly.release_date}}</p>
+                    <p class="text-center"><strong>{{weekly.vote_average}}</strong></p>
+                    <h5 class="text-center">{{weekly.overview}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<img src="https://image.tmdb.org/t/p/w185/{{movie.poster_path}}" alt="moviePoster">
-{{/each}}
+    <div class="container-fluid block block-2">
+        <div class="container-fluid block block-2">
+            <h2 class="text-center pt-5">Popular Movies</h2>
+            <div class="row full-width">
+                {{#each movies as |movie|}}
+                <div class="col-md-3 col-sm-1 col-1 text-center py-5 hoverContainer d-flex flex-wrap">
+                    <form action="/reviews/{{movie.id}}" id="redirectTo">
+                        <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
+                            alt="{{movie.title}}" class="posterBtn image"></input>
+                    </form>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>

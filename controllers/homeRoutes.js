@@ -35,29 +35,20 @@ router.get('/', async (req, res) => {
 });
 
 //create another get for an individual movie, or selected movie 
-async function oneMovie(IDofMovie) {
-    let selectedMovie = 'https://api.themoviedb.org/3/movie/' + IDofMovie + '?api_key=' + process.env.API_KEY + '&language=en-US&'
+async function oneMovie(MovieID) {
+    let selectedMovie = 'https://api.themoviedb.org/3/movie/' + MovieID + '?api_key=' + process.env.API_KEY + '&language=en-US&'
     try {
         const moviesData = await axios.get(selectedMovie);
         // console.log{ id, title, overview, poster_path, release_date, tagline, vote_average };
-        return 'reviews', moviesData.data.results
-    } catch (err) {
-        console.error(err);
-    }
-}
-
-async function getMovieID() {
-    let userSelectedMovie = 'https://api.themoviedb.org/3/movie/' +  + '/external_ids?api_key=' + process.env.API_KEY
-    try {
-        let movie = await axios.get(userSelectedMovie);
-        return movie.data.results.id
+        const { id, title, overview, poster_path, release_date, tagline, vote_average } = moviesData.data;
+        return { id, title, overview, poster_path, release_date, tagline, vote_average }
     } catch (err) {
         console.error(err);
     }
 }
 router.get('/reviews/:id', async (req, res) => {
     const retrievedMovieDetails = await oneMovie(req.params.id);
-    console.log(retrievedMovieDetails);
+    console.log(retrievedMovieDetails)
     res.render('reviews', { selectedMovie: retrievedMovieDetails });
 });
 
@@ -78,6 +69,7 @@ function randomPageNumber(max) {
     // console.log(randomPageInt);
     return randomPageInt
 }
+
 // queries user search to search for movie 
 async function searchMovieQuery(userSearch) {
     // let userSearch = process.argv[2];
@@ -93,9 +85,8 @@ async function searchMovieQuery(userSearch) {
 
 router.get('/search:query', async (req, res) => {
     const retrievedMoviesFromSearch = await searchMovieQuery(req.query.query);
-    res.render('search', { searchedMovies: retrievedMoviesFromSearch});
+    res.render('search', { searchedMovies: retrievedMoviesFromSearch });
 });
-
 
 
 module.exports = router;

@@ -21,7 +21,7 @@
             <div class="row full-width">
                 {{#each movies as |movie|}}
                 <div class="col-md-3 col-sm-3 col-3 text-center py-5 hoverContainer">
-                    <form action="/reviews/{{movie.id}}">
+                    <form action="/reviews/{{movie.id}}" id="redirectTo">
                         <input type="image" src="https://image.tmdb.org/t/p/w342/{{movie.poster_path}}"
                             alt="{{movie.title}}" class="posterBtn image"></input>
                     </form>

@@ -83,6 +83,4 @@ async function searchMovieQuery() {
     }
 }
 
-
-
 module.exports = router;

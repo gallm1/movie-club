@@ -59,30 +59,31 @@ async function weeklyMovie() {
     let randomMovie = 'https://api.themoviedb.org/3/discover/movie?api_key=' + apiKey + '&language=en-US&sort_by=popularity.desc&page=' + randomPageNumber(500);
     try {
         const pageObj = await axios.get(randomMovie);
-        res.render('reviews', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
+        // console.log(pageObj.data.results[randomPageNumber(pageObj.data.results.length)]);
+        return 'reviews', pageObj.data.results[randomPageNumber(pageObj.data.results.length)]
     } catch (err) {
         console.error(err);
     }
 }
-
-//queries user search to search for movie 
-//replace function params with user input later
-// async function searchMovieQuery() {
-//     let userSearch = process.argv[2];
-//     try {
-//         let moviesSearchURL = await axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&language=en-US&query=' + userSearch + '&page=1&include_adult=false')
-//         console.log(moviesSearchURL.data.results);
-//     } catch (err) {
-//         console.error(err);
-//     }
-// }
-
 
 function randomPageNumber(max) {
     let randomPageInt = Math.floor(Math.random() * max) + 1;
     // console.log(randomPageInt);
     return randomPageInt
 }
+//queries user search to search for movie 
+//replace function params with user input later
+async function searchMovieQuery() {
+    let userSearch = process.argv[2];
+    try {
+        let moviesSearchURL = await axios.get('https://api.themoviedb.org/3/search/movie?api_key=' + apiKey + '&language=en-US&query=' + userSearch + '&page=1&include_adult=false')
+        console.log(moviesSearchURL.data.results);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+
 
 
 

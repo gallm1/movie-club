@@ -39,7 +39,7 @@
 {{#each movies as |movie|}}
 <!--<p class="idm">ID: {{movie.id}}</p>-->
 <p class="title"> Title: {{weeklymovie.title}}</p>
-<p class="vote"> Avg Vote: {{weeklymovie.vote_average}}</p>
+<p class="vote"> Avg Vote: {{movie.vote_average}}</p>
 <p class="overview"> Overview: {weekly{movie.overview}}</p>
 
 <img src="https://image.tmdb.org/t/p/w185/{{weeklymovie.poster_path}}" alt="moviePoster">

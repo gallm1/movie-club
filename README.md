@@ -7,10 +7,17 @@ The DMC Movie club is an online forum for movie goers where they can sign up for
 ## Table of Contents
 
 ## Installation
+
 No installation required.  Application deployed via heroku.
+
 ## Usage
 
+Find the movie you want to view on the homepage.
 
+![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-Home-Page.png)
+
+Leave your review/feedback
+![image](https://github.com/gallm1/movie-club/blob/main/public/images/DMC-Review-Page.png)
 
 ## Credits
 

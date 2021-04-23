@@ -51,7 +51,6 @@ h1 {
  
     background-color: grey;
     color: white;
-    padding: 5%;
 }
 
 .block-1 {
@@ -60,4 +59,8 @@ h1 {
 
 .half-width {
     width: 50%;
+}
+
+.full-width {
+    width: 100%;
 }

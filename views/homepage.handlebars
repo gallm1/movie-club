@@ -9,9 +9,18 @@
                 <div class="col-md-6 col-sm-6 col-6 py-5">
                     <h2 class="text-center">{{weekly.title}}</h2>
                     <p class="text-center">{{weekly.release_date}}</p>
-                    <p class="text-center">{{weekly.vote_average}}</p>
-                    <p class="text-center">{{weekly.overview}}</p>
-
+                    <p class="text-center"><strong>{{weekly.vote_average}}</strong></p>
+                    <h5 class="text-center">{{weekly.overview}}</h5>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="container-fluid block block-2">
+        <div class="row full-width">
+            {{#each movies as |movie|}}
+            <div class="col-md-1 col-sm-1 col-1 text-center py-5">
+                <img src="https://image.tmdb.org/t/p/w154/{{movie.poster_path}}" alt="{{movie.title}}">
+            </div>
+            {{/each}}
         </div>

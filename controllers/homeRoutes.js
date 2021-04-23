@@ -46,9 +46,9 @@ async function oneMovie(MovieID) {
         console.error(err);
     }
 }
-router.get('/movie/:id', async (req, res) => {
+router.get('/reviews/:id', async (req, res) => {
     const retrievedMovieDetails = await oneMovie(req.params.id);
-    // console.log(retrievedMovieDetails)
+    console.log(retrievedMovieDetails)
     res.render('reviews', retrievedMovieDetails);
 });
 

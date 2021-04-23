@@ -69,11 +69,6 @@ h1 {
     width: 100%;
 }
 
-.hoverContainer {
-    position: relative;
-    width: 50%;
-}
-
 .image {
     opacity: 1;
     transition: .5s ease;
@@ -83,7 +78,3 @@ h1 {
 .hoverContainer:hover .image {
     opacity: 0.3;
 }
-
-.hoverContainer:hover .middle {
-    opacity: 1;
-} 
